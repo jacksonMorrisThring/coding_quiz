@@ -3,6 +3,8 @@ var timerEl=$('#timer');
 var rootEl=$('#root');
 var title=$('#title');
 var HSbutton = $('#highscore');
+var titleStatesEl = $("#title");
+var sideStatesEl = $("#side-menu");
 // var playAgain = $('#playAgain');
 
 title.text("Coding Quiz!");
@@ -24,16 +26,20 @@ var q3Flag = false;
 var allCorrectFlag = true;
 
 
+
 //These arrays will be filled via local storage
 var names = [];
 var scores = [];
 
 var index = 0;
 
+var HSflag = false;
+
 
 //Main function, starts countdown and handles back end variables
 function countdown(){
     HSbutton.on('click', function(event){
+        HSflag = true;
         event.preventDefault();
         console.log("button clicked");
         //If index is not-initialised (ie there are no high scores) index will not be gotten from LS
@@ -44,6 +50,9 @@ function countdown(){
             namesArray = JSON.parse(localStorage.getItem("names"));
             scoresArray = JSON.parse(localStorage.getItem("scores"));
             rootEl.text(namesArray[0] +  ": " + scoresArray[0]);
+            title.text('Highscore').css({'font-size': '30px', 'color': 'blue'});
+            timerEl.attr('data-state', 'hidden');
+            
         }
         else if(index===0)
         {
@@ -62,6 +71,7 @@ function countdown(){
             namesArray = JSON.parse(localStorage.getItem("names"));
             scoresArray = JSON.parse(localStorage.getItem("scores"));
             rootEl.text(" ");
+            sideStatesEl.attr('data-state', 'hidden');
 
             for (let i = 0; i < namesArray.length; i++) {
                 for (let j = i+1; j < namesArray.length; j++) {
@@ -101,7 +111,7 @@ function countdown(){
     //     countdown();
     // });
 
-    
+
     //Opens the first question element
     question1();
 
@@ -109,6 +119,11 @@ function countdown(){
     
 
     var timeInterval = setInterval(function () {
+
+        if (HSflag) {
+            clearInterval(timeInterval);
+        }
+
     // As long as the `timeLeft` is greater than 1
     if (timeLeft > 1) {
       // Set the `textContent` of `timerEl` to show the remaining seconds
@@ -201,8 +216,7 @@ function countdown(){
 
         
 
-        var titleStatesEl = $("#title");
-        var sideStatesEl = $("#side-menu");
+        
 
         titleStatesEl.text("");
         sideStatesEl.text("");
