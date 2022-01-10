@@ -87,3 +87,10 @@ You are required to submit BOTH of the following for review:
 ---
 
 © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+
+
+
+
+## My person notes
+
+My project utilises bootstrap for styling, and jQuery for practice and efficenecy. It uses a 2 button navigation.
