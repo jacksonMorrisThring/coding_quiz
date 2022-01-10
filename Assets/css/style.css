@@ -1,0 +1,23 @@
+#title{
+    display: flex;
+    justify-content: center;
+    font-family: serif;
+    position: relative;
+    top: 0px;
+}
+
+
+#side-menu{
+    position: absolute;
+    top: 200px;
+    left: 990px;
+}
+
+#root{
+    display: flex;
+    justify-content: center;
+}
+
+.nav-custom{
+    background-color: #fff;
+}
