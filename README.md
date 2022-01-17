@@ -1,9 +1,10 @@
+# 📖 Coding Quiz!
 
 ## The coding quiz serves as a...
 
 * Project to utilise bootstrap for styling, and jQuery for practice and efficenecy.   
 
-* Progressive testing of my knowledge in css for interview preparedness
+* Progressive testing of my knowledge in css and other features of coding for interview preparedness
 
 * It uses a 2 button navigation, and local storage to store highscores
 
